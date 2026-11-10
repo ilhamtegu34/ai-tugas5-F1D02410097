@@ -1,0 +1,18 @@
+{
+  "judul": "Diagnosis awal kondisi tanah dan kebutuhan pupuk organik pada lahan sawah",
+  "batas": "Aturan berasal dari 3 artikel jurnal pertanian Indonesia (S1, S2, S3) dan hanya mencakup bahan organik tanah, pemadatan, stabilitas agregat, emisi metana, dan konsistensi hara. Hasilnya saran awal, bukan pengganti uji tanah di laboratorium.",
+  "sumber": {
+    "S1": "Mendrofa, M. T. & Gulo, D. (2024). Pengaruh Pupuk Organik terhadap Perbaikan Struktur dan Stabilitas Tanah. PENARIK: Jurnal Ilmu Pertanian dan Perikanan, 1(1), 105-110, https://doi.org/10.70134/penarik.v2i2.72, diakses 10 Nov 2026",
+    "S2": "Zebua, T., Gulo, S. M. & Gulo, S. S. (2025). Pengaruh Pupuk Organik Terhadap Pertumbuhan Tanaman dan Kualitas Tanah. Flora: Jurnal Kajian Ilmu Pertanian dan Perkebunan, 2(1), 208-213, https://doi.org/10.62951/flora.v2i1.268, diakses 10 Nov 2026",
+    "S3": "Wihardjaka, A. & Harsanti, E. S. (2021). Dukungan Pupuk Organik untuk Memperbaiki Kualitas Tanah pada Pengelolaan Padi Sawah Ramah Lingkungan, https://doi.org/10.33964/jp.v30i1.496, diakses 10 Nov 2026"
+  },
+  "aturan": [
+    {"id": "R1", "jika": ["bahan organik tanah kurang dari 2 persen", "hanya diberi pupuk anorganik", "jerami dibakar atau diangkut keluar sawah"], "mode": "atau", "maka": "bahan organik tanah rendah", "sumber": "S3"},
+    {"id": "R2", "jika": ["pupuk kimia dosis berlebihan", "pengolahan tanah tidak tepat"], "mode": "atau", "maka": "tanah rawan padat", "sumber": "S1"},
+    {"id": "R3", "jika": ["bahan organik tanah rendah", "agregat tanah mudah hancur"], "mode": "dan", "maka": "stabilitas agregat rendah", "sumber": "S1"},
+    {"id": "R4", "jika": ["stabilitas agregat rendah", "tanah rawan padat"], "mode": "dan", "maka": "struktur tanah terdegradasi", "sumber": "S1"},
+    {"id": "R5", "jika": ["struktur tanah terdegradasi", "bahan organik tanah rendah"], "mode": "dan", "maka": "perlu pupuk organik matang", "sumber": "S3"},
+    {"id": "R6", "jika": ["lahan sawah tergenang", "bahan organik segar belum matang"], "mode": "dan", "maka": "risiko emisi metana tinggi", "sumber": "S3"},
+    {"id": "R7", "jika": ["bahan baku pupuk organik beragam", "mutu pupuk belum diuji"], "mode": "dan", "maka": "ketersediaan hara tidak konsisten", "sumber": "S2"}
+  ]
+}
