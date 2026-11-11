@@ -28,3 +28,16 @@ Program menanyakan kondisi lahan (misalnya bahan organik tanah, pemupukan, pengo
 ## Metode Forward Chaining
 Program memulai dari fakta yang dijawab 'y' atau 't' oleh pengguna, menjalankan aturan yang syaratnya terpenuhi, menambahkan hasilnya ke memori, dan mengulang sampai tidak ada aturan baru yang cocok. Aturan yang hasilnya sudah ada di memori tidak dijalankan lagi, sehingga program pasti berhenti. Setiap hasil dicatat berasal dari aturan mana, dan catatan itu dipakai untuk menampilkan alasan kesimpulan.
 Saya memilih metode Forward Chaining karena berdasarkan kasus yang saya gunakan pengguna biasanya hanya mengetahui kondisi yang teramati di lahan tetapi belum tahu masalah tanahnya. Untuk itu FC cocok untuk alur dari fakta menuju kesimpulan. Selain  itu, satu kumpulan fakta dapat menghasilkan lebih dari satu kesimpulan sekaligus (misalnya kebutuhan pupuk organik dan risiko emisi metana). FC menemukan semuanya dalam satu kali jalan.
+
+## Uji Kasus
+![Benar 1](Screenshot/Benar1.png)
+
+![Benar 2](Screenshot/Benar2.png)
+
+![Salah](Screenshot/Salah.png)
+
+## Batas Keberlakuan
+Pengetahuan dalam sistem ini berasal dari tiga artikel jurnal ilmiah (Mendrofa dan Gulo, 2024; Zebua dkk., 2025; Wihardjaka dan Harsanti, 2021), jadi aturan mencerminkan temuan para penulis tersebut, bukan pakar yang diwawancarai langsung. Sistem hanya berlaku untuk diagnosis awal lahan pertanian (terutama sawah) di Indonesia dan hanya mencakup bahan organik tanah, pemadatan, stabilitas agregat, emisi metana, dan konsistensi hara; jenis tanah, iklim, dan jenis tanaman tidak dibedakan, dan sistem tidak menghitung takaran pupuk. Hasilnya adalah saran awal, bukan keputusan akhir, dan perlu dikonfirmasi dengan uji tanah di laboratorium atau penyuluh pertanian.
+
+## Penggunaan AI
+Saya menggunakan AI untuk membantu menyelesaikan program Forward Chaining terutama pada bagian method def forward_chaining(aturan, memori), dan juga membatu menemukan penyebab eror yang terjadi.
