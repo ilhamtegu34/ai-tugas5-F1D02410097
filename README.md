@@ -30,10 +30,11 @@ Program memulai dari fakta yang dijawab 'y' atau 't' oleh pengguna, menjalankan 
 Saya memilih metode Forward Chaining karena berdasarkan kasus yang saya gunakan pengguna biasanya hanya mengetahui kondisi yang teramati di lahan tetapi belum tahu masalah tanahnya. Untuk itu FC cocok untuk alur dari fakta menuju kesimpulan. Selain  itu, satu kumpulan fakta dapat menghasilkan lebih dari satu kesimpulan sekaligus (misalnya kebutuhan pupuk organik dan risiko emisi metana). FC menemukan semuanya dalam satu kali jalan.
 
 ## Uji Kasus
+### Kasus 1
 ![Benar 1](Screenshot/Benar1.png)
-
+### Kasus 2
 ![Benar 2](Screenshot/Benar2.png)
-
+### Kasus 3
 ![Salah](Screenshot/Salah.png)
 
 ## Batas Keberlakuan
