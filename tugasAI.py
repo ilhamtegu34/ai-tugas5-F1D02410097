@@ -1,10 +1,3 @@
-"""Mesin forward chaining (FC) sederhana.
-
-Membaca aturan IF-THEN dari file JSON, menanyakan fakta dasar kepada user,
-lalu menyimpulkan dengan forward chaining dan menampilkan alasannya.
-
-Pemakaian: python forward_chaining.py [aturan.json]
-"""
 import json
 import sys
 
@@ -15,7 +8,6 @@ def muat_aturan(path):
 
 
 def cari_fakta_dasar(aturan):
-    """Fakta dasar = syarat yang tidak pernah menjadi hasil (maka) aturan mana pun."""
     hasil = {r["maka"] for r in aturan}
     dasar = []
     for r in aturan:
@@ -26,7 +18,6 @@ def cari_fakta_dasar(aturan):
 
 
 def tanya_user(fakta_dasar):
-    """Tanya satu per satu, kembalikan fakta yang dijawab 'y' (urutan terjaga)."""
     memori = []
     for no, fakta in enumerate(fakta_dasar, start=1):
         while True:
@@ -45,10 +36,6 @@ def syarat_terpenuhi(aturan, memori):
 
 
 def forward_chaining(aturan, memori):
-    """Jalankan FC. Mengembalikan (memori, asal, log_siklus).
-
-    asal[fakta] = aturan yang menghasilkan fakta tersebut (bahan 'alasan').
-    """
     memori = list(memori)
     asal = {}
     log = []
@@ -57,15 +44,14 @@ def forward_chaining(aturan, memori):
                  if syarat_terpenuhi(r, memori) and r["maka"] not in memori]
         if not cocok:
             break
-        r = cocok[0]                      # ambil aturan pertama
-        memori.append(r["maka"])          # tambahkan hasilnya ke memori
-        asal[r["maka"]] = r               # catat asal hasil (alasan)
+        r = cocok[0]                     
+        memori.append(r["maka"])          
+        asal[r["maka"]] = r            
         log.append(r)
     return memori, asal, log
 
 
 def cetak_alasan(fakta, asal, memori, indent=1, sudah=None):
-    """Cetak alasan secara rekursif: fakta <- aturan (syarat yang terpenuhi)."""
     if sudah is None:
         sudah = set()
     r = asal[fakta]
